@@ -20,21 +20,21 @@ public protocol DiskMonitorDelegate: AnyObject {
     /// - Parameters:
     ///   - monitor: The monitor that found it.
     ///   - diskAppeared: The raw `DADisk`.
-    func rawDiskMonitor(_ monitor: DiskMonitor, diskAppeared: DADisk)
+    func rawDiskMonitor(_ monitor: DiskMonitor, diskAppeared disk: DADisk)
     
     /// Called when a raw disk disappears.
     ///
     /// - Parameters:
     ///   - monitor: The monitor that found it.
     ///   - diskAppeared: The raw `DADisk`.
-    func rawDiskMonitor(_ monitor: DiskMonitor, diskDisappeared: DADisk)
+    func rawDiskMonitor(_ monitor: DiskMonitor, diskDisappeared disk: DADisk)
     
     /// Called when a raw disk was renamed.
     ///
     /// - Parameters:
     ///   - monitor: The monitor that found it.
     ///   - diskAppeared: The raw `DADisk`.
-    func rawDiskMonitor(_ monitor: DiskMonitor, diskRenamed: DADisk)
+    func rawDiskMonitor(_ monitor: DiskMonitor, diskRenamed disk: DADisk)
 }
 
 // MARK: - Notifications
@@ -130,17 +130,17 @@ extension DiskMonitor {
 extension DiskMonitor {
     
     @objc private func rawDiskAppeared(_ notification: Notification) {
-        let disk = notification as! DADisk
+        let disk = notification.object as! DADisk
         delegate?.rawDiskMonitor(self, diskAppeared: disk)
     }
     
     @objc private func rawDiskDisappeared(_ notification: Notification) {
-        let disk = notification as! DADisk
+        let disk = notification.object as! DADisk
         delegate?.rawDiskMonitor(self, diskDisappeared: disk)
     }
     
     @objc private func rawDiskRenamed(_ notification: Notification) {
-        let disk = notification as! DADisk
+        let disk = notification.object as! DADisk
         delegate?.rawDiskMonitor(self, diskRenamed: disk)
     }
 }
