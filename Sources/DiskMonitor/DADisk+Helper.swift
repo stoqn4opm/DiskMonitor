@@ -55,6 +55,13 @@ extension DADisk {
     /// The value under key `"DABusPath"` from this disk's description.
     public var busPath: String? { description?["DABusPath"] as? String }
     
+    /// The value under key `"DADeviceVendor"` from this disk's description.
+    public var deviceVendor: String? { description?["DADeviceVendor"] as? String }
+    
+    /// The value under key `"DADeviceVendor"` from this disk's description.
+    public var isVolumeNetwork: Bool? { description?["DAVolumeNetwork"] as? Bool }
+    
+    
     /// The value under key `"DAVolumeUUID"` from this disk's description.
     public var volumeUUID: String? {
         guard let description = description else { return nil }
