@@ -95,7 +95,11 @@ when you want to end the monitoring process.
 1. Go to your project settings
 2. Tap on your Project name above listed targets
 3. Open tab swift packages
-4. Add RDisk's repo as a package.
+4. Add DiskMonitor's repo as a package.
+
+# Further Information
+
+If you find `DiskMonitor` Package helpful, you might as well like [DiskUtil](https://github.com/stoqn4opm/DiskUtil).
 
 # Licence
 
